@@ -1,0 +1,25 @@
+header{
+    text-align: center;
+    background-color: rgb(65, 64, 64);
+    color: white;
+    height: 75px;
+    margin-bottom: 20px;
+}
+
+#cityInput{
+    width: 75%;
+    margin-bottom: 10px;
+}
+
+.history {
+    width: 100%;
+}
+.forecast{
+    margin-bottom: 10px;
+    background-color: blue;
+    color: white;
+}
+
+#currentWeather{
+    border: black;
+}
