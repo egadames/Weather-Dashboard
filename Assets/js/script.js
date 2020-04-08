@@ -6,6 +6,7 @@ function openWeatherMapApi(city) {
     console.log(response)
     var date          = moment().format("MM-DD-YYYY");
     console.log(date)
+    response.main.humidity
     var nameH1        = $("<h1>").text(response.name + " (" + date + ")");
     var temperatureP  = $("<p>").text("Temperature: " + response.main.temp + "° F");
     var humidityP     = $("<p>").text("Humidity: " + response.main.humidity + "%");
@@ -24,6 +25,7 @@ $.ajax({
 });      
 }
 
+// https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={YOUR API KEY}
 $.ajax({
   url: 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=624f9a5512645f4e434f1a1d56910742&units=imperial',
   method: "GET",
@@ -35,14 +37,20 @@ $.ajax({
     method: "GET",
   }).then(function(response) {
     console.log(response);
+    
+    console.log(response.list[0].weather[0].icon);
+
     // console.log(showIcon(response.list[i].weather[0].main))
     for(var i = 0; i < response.list.length; i += 8){
+    
       var html = `
       <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
         <div class="card-body text-white">
           <h5 class="card-title">${moment(response.list[i].dt_txt).format("MM-DD-YYYY")}</h5>
           <p>Temp: ${response.list[i].main.temp  + "° F"}</p>
           <p>${response.list[i].weather[0].main}</p>
+          <img src="${"http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png"}" alt="Icon">
+
           <p>Humidity: ${response.list[i].main.humidity + "%"}</p>
         </div>
       </div>
@@ -58,15 +66,15 @@ function savedList(city){
   $('#searchHistory').append(historyButton);
 }
 
-// function showIcon(weather){
-//   if(weather === 'Rain'){
-//     return '<i class="fas fa-cloud-rain"></i>';
-//   }else if(weather === 'Clouds'){
-//     return '<i class="fas fa-cloud"></i>';
-//   }else if(weather === 'Clear'){
-//     return '<i class="fas fa-sun"></i>';
-//   }
-// }
+function showIcon(weather){
+  if(weather === 'Rain'){
+    return '<i class="fas fa-cloud-rain"></i>';
+  }else if(weather === 'Clouds'){
+    return '<i class="fas fa-cloud"></i>';
+  }else if(weather === 'Clear'){
+    return '<i class="fas fa-sun"></i>';
+  }
+}
 
 $(document).on("click", "#button", function(event){
   // $('.row').text("");
