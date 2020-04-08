@@ -13,22 +13,22 @@ function openWeatherMapApi(city) {
     $('#currentWeather').append(nameH1,temperatureP,humidityP,windSpeedP);
   });
 
-  function myCallback(response) {
-    var result = [response.coord.lon,response.coord.lat];
-  $.ajax({
-    url: `http://api.openweathermap.org/data/2.5/uvi?appid=624f9a5512645f4e434f1a1d56910742&lat=${response.coord.lon}&lon=${response.coord.lat}&units=imperial`,
-    method: "GET",
-  }).then(function(response) {
-    var uvP = `<p>UV Index: <span class="btn btn-danger">${response.value}</span></p>`
-    $('#currentWeather').append(uvP);
-  });      
-  }
+function myCallback(response) {
+  var result = [response.coord.lon,response.coord.lat];
+$.ajax({
+  url: `http://api.openweathermap.org/data/2.5/uvi?appid=624f9a5512645f4e434f1a1d56910742&lat=${response.coord.lon}&lon=${response.coord.lat}&units=imperial`,
+  method: "GET",
+}).then(function(response) {
+  var uvP = `<p>UV Index: <span class="btn btn-danger">${response.value}</span></p>`
+  $('#currentWeather').append(uvP);
+});      
+}
 
-  $.ajax({
-    url: 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=624f9a5512645f4e434f1a1d56910742&units=imperial',
-    method: "GET",
-    success: myCallback
-  });
+$.ajax({
+  url: 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=624f9a5512645f4e434f1a1d56910742&units=imperial',
+  method: "GET",
+  success: myCallback
+});
 
   $.ajax({
     url: 'https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=624f9a5512645f4e434f1a1d56910742&units=imperial',
@@ -58,15 +58,15 @@ function savedList(city){
   $('#searchHistory').append(historyButton);
 }
 
-function showIcon(weather){
-  if(weather === 'Rain'){
-    return '<i class="fas fa-cloud-rain"></i>';
-  }else if(weather === 'Clouds'){
-    return '<i class="fas fa-cloud"></i>';
-  }else if(weather === 'Clear'){
-    return '<i class="fas fa-sun"></i>';
-  }
-}
+// function showIcon(weather){
+//   if(weather === 'Rain'){
+//     return '<i class="fas fa-cloud-rain"></i>';
+//   }else if(weather === 'Clouds'){
+//     return '<i class="fas fa-cloud"></i>';
+//   }else if(weather === 'Clear'){
+//     return '<i class="fas fa-sun"></i>';
+//   }
+// }
 
 $(document).on("click", "#button", function(event){
   // $('.row').text("");
