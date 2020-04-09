@@ -2,7 +2,8 @@ function openWeatherMapApi(city) {
   $.ajax({
     url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=624f9a5512645f4e434f1a1d56910742&units=imperial',
     method: "GET",
-  }).then(function(response) {   
+  }).then(function(response) {  
+    $('#currentWeather').empty();
     console.log(response)
     var date          = moment().format("MM-DD-YYYY");
     console.log(date)
@@ -17,10 +18,26 @@ function openWeatherMapApi(city) {
 function myCallback(response) {
   var result = [response.coord.lon,response.coord.lat];
 $.ajax({
-  url: `http://api.openweathermap.org/data/2.5/uvi?appid=624f9a5512645f4e434f1a1d56910742&lat=${response.coord.lon}&lon=${response.coord.lat}&units=imperial`,
+  url: `http://api.openweathermap.org/data/2.5/uvi?appid=624f9a5512645f4e434f1a1d56910742&lat=${response.coord.lon}&lon=${response.coord.lat}`,
   method: "GET",
 }).then(function(response) {
-  var uvP = `<p>UV Index: <span class="btn btn-danger">${response.value}</span></p>`
+  console.log(response.value)
+  var uvP;
+  switch(true){
+    case response.value > 8:
+      uvP = `<p>UV Index: <span class="btn btn-danger">${response.value}</span></p>`;
+    break;
+    case response.value < 2:
+      uvP = `<p>UV Index: <span class="btn btn-success">${response.value}</span></p>`;
+    break;
+    default:
+      uvP = `<p>UV Index: <span class="btn btn-warning">${response.value}</span></p>`;
+  }
+  
+  // if(response.value>8){
+  //   var uvP = `<p>UV Index: <span class="btn btn-danger">${response.value}</span></p>`
+  // }
+  // var uvP = `<p>UV Index: <span class="btn btn-danger">${response.value}</span></p>`
   $('#currentWeather').append(uvP);
 });      
 }
@@ -36,15 +53,13 @@ $.ajax({
     url: 'https://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=624f9a5512645f4e434f1a1d56910742&units=imperial',
     method: "GET",
   }).then(function(response) {
-    console.log(response);
-    
-    console.log(response.list[0].weather[0].icon);
+    $('#forecastInput').empty();
 
     // console.log(showIcon(response.list[i].weather[0].main))
     for(var i = 0; i < response.list.length; i += 8){
     
       var html = `
-      <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
+      <div class="col-lg-3 card text-white bg-primary mb-3" style="max-width: 10rem;">
         <div class="card-body text-white">
           <h5 class="card-title">${moment(response.list[i].dt_txt).format("MM-DD-YYYY")}</h5>
           <p>Temp: ${response.list[i].main.temp  + "° F"}</p>
