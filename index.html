@@ -5,12 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
   <link rel="stylesheet" href="./Assets/css/style.css">
-  <script src="https://kit.fontawesome.com/e3c037fab4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -20,117 +16,22 @@
 
   <div class="container-fluid">
     <!-- Row 1 -->
-    <div class="row border">
-      <div class="col-lg-3 border" id=searchHistory>
+    <div class="row">
+      <div class="col-lg-3" id=searchHistory>
         <h3>Search for a City:</h3>
-        <input name="City" id="cityInput"><span><button id="button">Search</button></span></input>
-      </div>
-      <div class="col-lg-9 border" >
-        <div class="container" id=currentWeather>
-        </div>
+        <input name="City" id="cityInput"><span><button id="button">Search</button></span></input></div>
+      <div class="col-lg-9" >
+        <div class="container mb-3 mt-3" id=currentWeather> </div>
         <div class="row" id=forecastInput>
+
         </div>
+        
       </div>
     </div>
   </div>
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./Assets/js/script.js"></script>
 </body>
 
 </html>
-
-<!-- 
-<button type="button" class="list-group-item list-group-item-action">Chicago</button>
-
-        <div class="col-lg-9">
-          <div class="col-lg-3">
-            <div class="card text-white bg-primary mb-4" style="max-width: 12rem;">
-              <div class="card-body">
-                <h5 class="card-title">Primary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-               <h1>response.city.name + "  + date + )</h1>
-              <p>Temperature:  + ${response.list[0].main.temp} + F</p>
-              <p>Humidity: </p>
-              <p>Wind Speed: </p> -->
-
-
-<!-- <p>UV Index: <span class="btn btn-danger"></span></p> -->
-
-<!-- <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action">Austin</button>
-              </div> -->
-
-
-<!-- <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-                </div>
-            </div> -->
-
-<!-- <div class="list-group">
-        <button type="button" class="list-group-item list-group-item-action">Austin</button>
-      </div> -->
-<!-- </div> -->
-
-
-<!-- 
-          <div class="row" id="5dayForecast">
-
-          </div>      -->
-
-
-<!-- <main>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-3">
-            <h3>Search for a City:</h3>
-            <input name="City" id="cityInput"><span><button id="button">Search</button></span></input>
-          </div>
-        </div>
-          <div class="col-lg-9">
-
-              <div class="col-lg-3">
-                <h3>FUCKING WORK YOU PIECE OF SHIT</h3>
-              </div>  
-          </div>
-      </div>
-    </main> -->
-
-<!-- <div class="col-lg-2" id=forecastInput>
-              <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-                <div class="card-body text-white">
-                  <h5 class="card-title">"MM-DD-YYYY"</h5>
-                  <p>Temp: </p>
-                  <p>Rain: </p>
-                  <p>Humidity: </p>
-                </div>
-              </div>
-            </div>
-          </div>
-         
-        </div>
-      </div>
-    </div> -->
-
-<!-- <div class="row">
-    <div class="col-lg-2" id=forecastInput>
-      <div class="card text-white bg-primary mb-3" style="max-width: 10rem;">
-        <div class="card-body text-white">
-          <h5 class="card-title">"MM-DD-YYYY"</h5>
-          <p>Temp: </p>
-          <p>Rain: </p>
-          <p>Humidity: </p>
-        </div>
-      </div>
-    </div>
-  </div> -->
