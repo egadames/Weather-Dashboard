@@ -59,10 +59,9 @@ $.ajax({
 }
 
 function savedList(city){
-  var historyButton =  `<button type="button" class="history" > ${city} </button>`;
+  var historyButton =  $("<button>").addClass("history").text(city).attr('id', city);
   $('#searchHistory').append(historyButton);
-  $('#cityInput').empty();
-
+  // $('#cityInput').empty();
 }
 
 $(document).on("click", "#button", function(event){
@@ -75,6 +74,7 @@ $(document).on("click", "#button", function(event){
 $(document).on("click", ".history", function(event){
   // This is a variable that contains the ID of the button clicked.
   var buttonId = $(this).attr("id");
+  console.log(buttonId)
   openWeatherMapApi(buttonId);
   savedList(buttonId);
   getCoordinates(buttonId);
