@@ -5,8 +5,9 @@ function openWeatherMapApi(city) {
   }).then(function(response) {  
     console.log(response.weather[0].icon)
     $('#currentWeather').empty();
-    var date          = moment().format("MM-DD-YYYY");
+    var date          = moment().format("MM/DD/YYYY");
     var nameH1        = $("<h1>").text(response.name + " (" + date + ")" + " ");
+    nameH1.append(`<img src="${"http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png"}" alt="Icon">`);
     var temperatureP  = $("<p>").text("Temperature: " + response.main.temp + "° F");
     var humidityP     = $("<p>").text("Humidity: " + response.main.humidity + "%");
     var windSpeedP    = $("<p>").text("Wind Speed: " + response.wind.speed + " MPH");
@@ -20,7 +21,7 @@ function myCallback(response) {
     method: "GET",
   }).then(function(response) {
     console.log(response)
-    var forecastH1 = `<h1> 5 Day Forecast: </h1>`
+    var forecastH1 = `<h1>5 Day Forecast: </h1>`
     var uvP;
     switch(true){
       case response.current.uvi > 8:
@@ -60,12 +61,13 @@ $.ajax({
 
 function savedList(city){
   var historyButton =  $("<button>").addClass("history").text(city).attr('id', city);
-  $('#searchHistory').append(historyButton);
-  // $('#cityInput').empty();
+  $('#searchHistory').prepend(historyButton);
+  
 }
 
 $(document).on("click", "#button", function(event){
   var cityInput = $("#cityInput").val().trim();
+  $('#cityInput').val("");
   openWeatherMapApi(cityInput);
   savedList(cityInput);
   getCoordinates(cityInput);
@@ -74,7 +76,6 @@ $(document).on("click", "#button", function(event){
 $(document).on("click", ".history", function(event){
   // This is a variable that contains the ID of the button clicked.
   var buttonId = $(this).attr("id");
-  console.log(buttonId)
   openWeatherMapApi(buttonId);
   savedList(buttonId);
   getCoordinates(buttonId);
