@@ -41,3 +41,15 @@ button:hover {
     border: black;
 }
 
+.card-body{
+background-color: #0085CA;
+color: black;
+
+}
+
+
+.col-lg-2.card{
+    background-color: #0085CA;
+    margin-right: 10px;
+
+}

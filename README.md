@@ -1,46 +1,42 @@
 # 06 Server-Side APIs: Weather Dashboard
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+Homework 6 - Weather Dashboard by Erik Adames
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that will provide basic setup and usage instructions. Use `localStorage` to store any persistent data.
+## Location of URLs
 
-## User Story
+This is the link to the github repo:
 
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+https://github.com/egadames/hw6
 
-## Acceptance Criteria
+This is the link to the live website:
 
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast
-```
+https://egadames.github.io/hw6/
 
-The following image demonstrates the application functionality:
+### Description
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
+- The app is a website loads that contains an input search. That takes a city from the user to search for weather information.
 
-## Review
+- Once the search button is clicked the current weather is loaded as well as a 5 day forecast.
 
-You are required to submit the following for review:
+- The user's input is shown as search history below the search input.
 
-* The URL of the deployed application.
+- The search history are button that once clicked will reload the required information from the various apis.
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+### Technologies
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+- The website uses HTML, CSS, APIs and Jquery.
+
+### Challenges
+
+- This app was of a little challenging as there were features that needed to perform in a certain manner such as the forecast and the UV index.
+
+- The most difficult issue were trying to make HTML layout work properly. There were various issues in trying to make the forecast cards load in the right order and horizontally.
+
+- Another issue was discovering a way to get the longitude and latitude based on the user response.
+
+- By the end I was able to get a better grasp of using Jquery and a better understanding of creating a HTML layout. Also, I got a good understanding the use of APIs and how to load the information into a web document.
+
+### Screenshot
+
+![weather dashboard demo](./Assets/img/screenshot.JPG)
+
